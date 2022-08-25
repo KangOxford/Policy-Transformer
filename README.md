@@ -1,5 +1,5 @@
-# DecisionTransformer
-DecisionTransformer in Reinforcement Learning
+# Transformer
+Transformer in Reinforcement Learning
 * casts the problem of RL as conditional sequence modeling
 * comparison
     * traditional: fit value functions or compute policy gradients
