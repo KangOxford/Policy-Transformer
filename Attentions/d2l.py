@@ -5,9 +5,10 @@ Created on Thu Aug 25 17:59:40 2022
 
 @author: kang
 """
-
+# %%
 import torch
 from torch import nn
+import numpy as np
 from d2l import torch as d2l
 
 def masked_softmax(X, valid_lens):
@@ -33,3 +34,12 @@ def masked_softmax(X, valid_lens):
         return nn.functional.softmax(X.reshape(shape), dim=-1)
     
 masked_softmax(torch.rand(2, 2, 4), torch.tensor([[1, 3], [2, 4]]))
+
+# %%
+X = torch.ones((2, 1, 4))
+Y = torch.ones((2, 4, 6))
+# d2l.check_shape(torch.bmm(X, Y), (2, 1, 6))
+weights = torch.ones((2, 10)) * 0.1
+values = torch.arange(20.0).reshape((2, 10))
+torch.bmm(weights.unsqueeze(1), values.unsqueeze(-1))
+
